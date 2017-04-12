@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.utils.translation import ugettext_lazy as _
 from django.dispatch import receiver
 
 from .choices import *
@@ -58,38 +59,59 @@ def save_user_profile(sender, instance, **kwargs):
 class Rumah(models.Model):
     """Rumah models."""
 
-    judul = models.CharField(
-        max_length=255
+    judul_iklan = models.CharField(
+        max_length=255,
+        help_text=_('Masukkan judul iklan')
     )
-    harga = models.IntegerField()
+    harga = models.IntegerField(
+        help_text=_('Masukkan harga rumah')
+    )
     luas_tanah = models.IntegerField(
-        verbose_name='Luas Tanah'
-    )  # luas tanah
-    luas_rumah = models.IntegerField()  # luas rumah
+        verbose_name='Luas Tanah',
+        help_text=_('Satuan meter persegi')
+    )
+    luas_rumah = models.IntegerField(
+        verbose_name='Luas Rumah',
+        help_text=_('Satuan meter persegi')
+    )
     jenis_lantai = models.CharField(
-        max_length=255
-    )  # jenis lantai
+        max_length=255,
+        blank=True,
+        null=True,
+        verbose_name='Jenis Lantai',
+        help_text=_('Jenis lantai')
+    )
     jumlah_kamar_tidur = models.PositiveSmallIntegerField(
-        choices=ROOM_NUMBER
+        choices=ROOM_NUMBER,
+        help_text=_('Pilih jumlah kamar tidur')
     )
     jumlah_kamar_mandi = models.PositiveSmallIntegerField(
-        choices=ROOM_NUMBER
+        choices=ROOM_NUMBER,
+        help_text=_('Pilih jumlah kamar mandi')
     )
     status_sertifikat = models.CharField(
         choices=CERTIFICATE_STATUS,
-        max_length=255
+        max_length=255,
+        help_text=_('Pilih jenis sertifikat')
     )
     fasilitas = models.CharField(
         choices=FACILITIES,
-        max_length=255
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text=_('Pilih fasilitas yang tersedia, bisa lebih dari satu')
     )
-    alamat = models.TextField()
-    deskripsi = models.TextField(
-        max_length=255
+    alamat = models.TextField(
+        help_text=_('Masukkan alamat detail')
+    )
+    deskripsi_iklan = models.TextField(
+        max_length=255,
+        help_text=_('Masukkan deskripsi iklan')
     )
     user = models.ForeignKey(
         User,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        help_text=_('Pilih user')
     )
 
     class Meta:
