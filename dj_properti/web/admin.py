@@ -18,6 +18,7 @@ class FotoRumahInline(admin.TabularInline):
 
 class RumahAdmin(admin.ModelAdmin):
     inlines = (FotoRumahInline,)
+    prepopulated_fields = {'judul_iklan_slug': ('judul_iklan',)}
 
 
 class CustomUserAdmin(UserAdmin):
