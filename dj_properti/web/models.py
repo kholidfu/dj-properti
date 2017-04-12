@@ -63,6 +63,7 @@ class Rumah(models.Model):
         max_length=255,
         help_text=_('Masukkan judul iklan')
     )
+    judul_iklan_slug = models.SlugField()
     harga = models.IntegerField(
         help_text=_('Masukkan harga rumah')
     )
@@ -105,7 +106,6 @@ class Rumah(models.Model):
         help_text=_('Masukkan alamat detail')
     )
     deskripsi_iklan = models.TextField(
-        max_length=255,
         help_text=_('Masukkan deskripsi iklan')
     )
     user = models.ForeignKey(
