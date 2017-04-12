@@ -98,7 +98,7 @@ class Rumah(models.Model):
 class FotoRumah(models.Model):
     foto_rumah = models.ForeignKey(Rumah)
     foto = models.ImageField(
-        upload_to='assets/',
+        upload_to='assets/rumah/',
         blank=True,
         null=True,
         max_length=1000,  # max_length of filename
