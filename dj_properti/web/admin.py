@@ -12,12 +12,12 @@ class ProfileInline(admin.StackedInline):
     fk_name = 'user'
 
 
-class HouseImageInline(admin.TabularInline):
-    model = HouseImage
+class FotoRumahInline(admin.TabularInline):
+    model = FotoRumah
     extra = 1
 
-class HouseAdmin(admin.ModelAdmin):
-    inlines = (HouseImageInline,)
+class RumahAdmin(admin.ModelAdmin):
+    inlines = (FotoRumahInline,)
 
 
 class CustomUserAdmin(UserAdmin):
@@ -29,8 +29,7 @@ class CustomUserAdmin(UserAdmin):
         return super(CustomUserAdmin, self).get_inline_instances(request, obj)
 
     
-admin.site.register(Category)
-admin.site.register(House, HouseAdmin)
+admin.site.register(Rumah, RumahAdmin)
 admin.site.register(Profile)
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)

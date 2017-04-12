@@ -43,6 +43,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
@@ -53,41 +54,37 @@ def save_user_profile(sender, instance, **kwargs):
     if not instance.is_superuser:
         instance.profile.save()
 
-class Category(models.Model):
-    """Category Models."""
-    pass
 
+class Rumah(models.Model):
+    """Rumah models."""
 
-class House(models.Model):
-    """House models."""
-
-    title = models.CharField(
+    judul = models.CharField(
         max_length=255
     )
-    price = models.IntegerField()
-    lotsize = models.IntegerField(
+    harga = models.IntegerField()
+    luas_tanah = models.IntegerField(
         verbose_name='Luas Tanah'
     )  # luas tanah
-    housesize = models.IntegerField()  # luas rumah
-    floortype = models.CharField(
+    luas_rumah = models.IntegerField()  # luas rumah
+    jenis_lantai = models.CharField(
         max_length=255
     )  # jenis lantai
-    bedroom = models.PositiveSmallIntegerField(
+    jumlah_kamar_tidur = models.PositiveSmallIntegerField(
         choices=ROOM_NUMBER
     )
-    bathroom = models.PositiveSmallIntegerField(
+    jumlah_kamar_mandi = models.PositiveSmallIntegerField(
         choices=ROOM_NUMBER
     )
-    certificate_status = models.CharField(
+    status_sertifikat = models.CharField(
         choices=CERTIFICATE_STATUS,
         max_length=255
     )
-    facilities = models.CharField(
+    fasilitas = models.CharField(
         choices=FACILITIES,
         max_length=255
     )
-    address = models.TextField()
-    description = models.TextField(
+    alamat = models.TextField()
+    deskripsi = models.TextField(
         max_length=255
     )
     user = models.ForeignKey(
@@ -95,9 +92,12 @@ class House(models.Model):
         on_delete=models.CASCADE
     )
 
-class HouseImage(models.Model):
-    house_image = models.ForeignKey(House)
-    image = models.ImageField(
+    class Meta:
+        verbose_name_plural = 'Rumah'
+
+class FotoRumah(models.Model):
+    foto_rumah = models.ForeignKey(Rumah)
+    foto = models.ImageField(
         upload_to='assets/',
         blank=True,
         null=True,
