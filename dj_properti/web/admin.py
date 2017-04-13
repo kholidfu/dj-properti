@@ -16,6 +16,7 @@ class FotoRumahInline(admin.TabularInline):
     model = FotoRumah
     extra = 1
 
+
 class RumahAdmin(admin.ModelAdmin):
     inlines = (FotoRumahInline,)
     prepopulated_fields = {'judul_iklan_slug': ('judul_iklan',)}
@@ -29,7 +30,12 @@ class CustomUserAdmin(UserAdmin):
             return list()
         return super(CustomUserAdmin, self).get_inline_instances(request, obj)
 
-    
+
+class FasilitasAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'nama_fasilitas_slug': ('nama_fasilitas',)}
+
+
+admin.site.register(Fasilitas, FasilitasAdmin)
 admin.site.register(Rumah, RumahAdmin)
 admin.site.register(Profile)
 admin.site.unregister(User)

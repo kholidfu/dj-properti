@@ -55,6 +55,18 @@ def save_user_profile(sender, instance, **kwargs):
     if not instance.is_superuser:
         instance.profile.save()
 
+class Fasilitas(models.Model):
+    """Fasilitas Model."""
+    nama_fasilitas = models.CharField(
+        max_length=255,
+        help_text=_('Pilih fasilitas yang tersedia di rumah')
+    )
+    nama_fasilitas_slug = models.SlugField()
+
+
+    def __str__(self):
+        return self.nama_fasilitas
+
 
 class Rumah(models.Model):
     """Rumah models."""
@@ -92,17 +104,14 @@ class Rumah(models.Model):
         choices=ROOM_NUMBER,
         help_text=_('Pilih jumlah kamar mandi')
     )
-    status_sertifikat = models.CharField(
+    status_sertifikat = models.PositiveSmallIntegerField(
         choices=CERTIFICATE_STATUS,
-        max_length=255,
         help_text=_('Pilih jenis sertifikat')
     )
-    fasilitas = models.CharField(
-        choices=FACILITIES,
-        max_length=255,
+    fasilitas = models.ManyToManyField(
+        Fasilitas,
         blank=True,
         null=True,
-        help_text=_('Pilih fasilitas yang tersedia, bisa lebih dari satu')
     )
     alamat = models.TextField(
         help_text=_('Masukkan alamat detail')
@@ -118,6 +127,9 @@ class Rumah(models.Model):
 
     class Meta:
         verbose_name_plural = 'Rumah'
+
+    def __str__(self):
+        return self.judul_iklan
 
 class FotoRumah(models.Model):
     foto_rumah = models.ForeignKey(Rumah)
