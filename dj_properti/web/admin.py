@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
+from django import forms
 
 from .models import *
 
@@ -20,6 +21,9 @@ class FotoRumahInline(admin.TabularInline):
 class RumahAdmin(admin.ModelAdmin):
     inlines = (FotoRumahInline,)
     prepopulated_fields = {'judul_iklan_slug': ('judul_iklan',)}
+    formfield_overrides = {
+        models.ManyToManyField: {'widget': forms.CheckboxSelectMultiple},
+    }
 
 
 class CustomUserAdmin(UserAdmin):
