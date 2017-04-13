@@ -35,36 +35,36 @@ CERTIFICATE_STATUS = (
 )
 
 # FACILITIES
-AC = 1
-SWIMMING_POOL = 2
-CARPORT = 3
-GARDEN = 4
-GARASI = 5
-TELEPHONE = 6
-PAM = 7
-WATER_HEATER = 8
-REFRIGERATOR = 9
-STOVE = 10
-MICROWAVE = 11
-OVEN = 12
-FIRE_EXTENGUISHER = 13
-GORDYN = 14
-FACILITIES = (
-    (AC, 'AC'),
-    (SWIMMING_POOL, 'Swimming Pool'),
-    (CARPORT, 'Carport'),
-    (GARDEN, 'Garden'),
-    (GARASI, 'Garasi'),
-    (TELEPHONE, 'Telephone'),
-    (PAM, 'PAM'),
-    (WATER_HEATER, 'Water Heater'),
-    (REFRIGERATOR, 'Refrigerator'),
-    (STOVE, 'Stove'),
-    (MICROWAVE, 'Microwave'),
-    (OVEN, 'Oven'),
-    (FIRE_EXTENGUISHER, 'Fire Extenguisher'),
-    (GORDYN, 'Gordyn'),
-)
+# AC = 1
+# SWIMMING_POOL = 2
+# CARPORT = 3
+# GARDEN = 4
+# GARASI = 5
+# TELEPHONE = 6
+# PAM = 7
+# WATER_HEATER = 8
+# REFRIGERATOR = 9
+# STOVE = 10
+# MICROWAVE = 11
+# OVEN = 12
+# FIRE_EXTENGUISHER = 13
+# GORDYN = 14
+# FACILITIES = (
+#     ('AC', 'AC'),
+#     ('SWIMMING_POOL', 'Swimming Pool'),
+#     ('CARPORT', 'Carport'),
+#     ('GARDEN', 'Garden'),
+#     ('GARASI', 'Garasi'),
+#     ('TELEPHONE', 'Telephone'),
+#     ('PAM', 'PAM'),
+#     ('WATER_HEATER', 'Water Heater'),
+#     ('REFRIGERATOR', 'Refrigerator'),
+#     ('STOVE', 'Stove'),
+#     ('MICROWAVE', 'Microwave'),
+#     ('OVEN', 'Oven'),
+#     ('FIRE_EXTENGUISHER', 'Fire Extenguisher'),
+#     ('GORDYN', 'Gordyn'),
+# )
 
 ACEH = 1
 BALI = 2
