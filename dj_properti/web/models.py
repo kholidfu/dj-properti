@@ -90,7 +90,7 @@ class Rumah(models.Model):
         help_text=_('Otomatis terisi, biarkan saja')
     )
     status_iklan = models.PositiveSmallIntegerField(
-        choices=LISTING_TYPE,
+        choices=TIPE_LISTING,
         verbose_name=('Status Iklan'),
         help_text=('Pilih jenis iklan'),
     )
@@ -113,15 +113,15 @@ class Rumah(models.Model):
         help_text=_('Jenis lantai')
     )
     jumlah_kamar_tidur = models.PositiveSmallIntegerField(
-        choices=ROOM_NUMBER,
+        choices=JUMLAH_KAMAR,
         help_text=_('Pilih jumlah kamar tidur')
     )
     jumlah_kamar_mandi = models.PositiveSmallIntegerField(
-        choices=ROOM_NUMBER,
+        choices=JUMLAH_KAMAR,
         help_text=_('Pilih jumlah kamar mandi')
     )
     status_sertifikat = models.PositiveSmallIntegerField(
-        choices=CERTIFICATE_STATUS,
+        choices=STATUS_SERTIFIKAT,
         help_text=_('Pilih jenis sertifikat')
     )
     fasilitas = models.ManyToManyField(

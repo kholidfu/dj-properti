@@ -2,7 +2,7 @@
 JUAL = 1
 # BELI = 2
 SEWA = 3
-LISTING_TYPE = (
+TIPE_LISTING = (
     (JUAL, 'Dijual'),
     # (BELI, 'Beli'),
     (SEWA, 'Disewakan'),
@@ -15,7 +15,7 @@ TIGA = 3
 EMPAT = 4
 LIMA = 5
 ENAM = 6
-ROOM_NUMBER = (
+JUMLAH_KAMAR = (
     (SATU, 1),
     (DUA, 2),
     (TIGA, 3),
@@ -28,7 +28,7 @@ ROOM_NUMBER = (
 SHM = 1
 HGB = 2
 LAINNYA = 3
-CERTIFICATE_STATUS = (
+STATUS_SERTIFIKAT = (
     (SHM, 'SHM - Sertifikat Hak Milik'),
     (HGB, 'HGB - Hak Guna Bangunan'),
     (LAINNYA, 'Lainnya - PPJB, Girik, Adat, dll'),
