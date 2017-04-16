@@ -20,11 +20,23 @@ class FotoRumahInline(admin.TabularInline):
 
 class RumahAdmin(admin.ModelAdmin):
     inlines = (FotoRumahInline,)
-    prepopulated_fields = {'judul_iklan_slug': ('judul_iklan',)}
+    # prepopulated_fields = {'judul_iklan_slug': ('judul_iklan',)}
     formfield_overrides = {
         models.ManyToManyField: {'widget': forms.CheckboxSelectMultiple},
     }
-    exclude = ('user',)
+    exclude = ('judul_iklan_slug', 'user',)
+
+    def save_model(self, request, obj, form, change):
+        """When creating a new object, set the creator field.
+
+        Example of request all listings by current user:
+
+        >>> Rumah.objects.filter(user__username='admin')
+
+        """
+        if not change:
+            obj.user = request.user
+        obj.save()
 
 
 class CustomUserAdmin(UserAdmin):
