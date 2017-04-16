@@ -1,6 +1,6 @@
 # DJ-PROPERTI
 
-Just another property listing site built with django + python3
+Platform untuk web iklan properti, meliputi, rumah, tanah, apartemen, dll. Platform ini dibuat dengan menggunakan python3 + django.
 	
 ## Goals
 
