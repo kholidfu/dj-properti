@@ -1,4 +1,4 @@
-# LISTING TYPE
+# TIPE LISTING
 JUAL = 1
 # BELI = 2
 SEWA = 3
@@ -8,7 +8,7 @@ TIPE_LISTING = (
     (SEWA, 'Disewakan'),
 )
 
-# ROOM_NUMBER
+# JUMLAH KAMAR
 SATU = 1
 DUA = 2
 TIGA = 3
@@ -24,7 +24,7 @@ JUMLAH_KAMAR = (
     (ENAM, 6),
 )
 
-# CERTIFICATE_STATUS
+# STATUS SERTIFIKAT
 SHM = 1
 HGB = 2
 LAINNYA = 3
