@@ -70,6 +70,11 @@ class Fasilitas(models.Model):
         verbose_name_plural = 'Fasilitas'
 
 
+    def save(self, *args, **kwargs):
+        # override save for slug field
+        self.nama_fasilitas_slug = slugify(self.nama_fasilitas)
+        super(Fasilitas, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.nama_fasilitas
 

@@ -49,7 +49,8 @@ class CustomUserAdmin(UserAdmin):
 
 
 class FasilitasAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'nama_fasilitas_slug': ('nama_fasilitas',)}
+    # prepopulated_fields = {'nama_fasilitas_slug': ('nama_fasilitas',)}
+    exclude = ('nama_fasilitas_slug',)
 
 
 admin.site.register(Fasilitas, FasilitasAdmin)
