@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.utils.translation import ugettext_lazy as _
 from django.dispatch import receiver
+from django.template.defaultfilters import slugify
 
 from .choices import *
 
@@ -141,7 +142,9 @@ class Rumah(models.Model):
 
 
     def save(self, *args, **kwargs):
-        pass
+        # override save for slug field
+        self.judul_iklan_slug = slugify(self.judul_iklan)
+        super(Rumah, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.judul_iklan
