@@ -15,7 +15,7 @@ class ProfileInline(admin.StackedInline):
 
 class FotoRumahInline(admin.TabularInline):
     model = FotoRumah
-    extra = 1
+    extra = 6
 
 
 class RumahAdmin(admin.ModelAdmin):
@@ -24,6 +24,7 @@ class RumahAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.ManyToManyField: {'widget': forms.CheckboxSelectMultiple},
     }
+    exclude = ('user',)
 
 
 class CustomUserAdmin(UserAdmin):

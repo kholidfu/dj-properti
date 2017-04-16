@@ -55,6 +55,7 @@ def save_user_profile(sender, instance, **kwargs):
     if not instance.is_superuser:
         instance.profile.save()
 
+
 class Fasilitas(models.Model):
     """Fasilitas Model."""
     nama_fasilitas = models.CharField(
@@ -62,6 +63,10 @@ class Fasilitas(models.Model):
         help_text=_('Pilih fasilitas yang tersedia di rumah')
     )
     nama_fasilitas_slug = models.SlugField()
+
+
+    class Meta:
+        verbose_name_plural = 'Fasilitas'
 
 
     def __str__(self):
@@ -77,6 +82,11 @@ class Rumah(models.Model):
     )
     judul_iklan_slug = models.SlugField(
         help_text=_('Otomatis terisi, biarkan saja')
+    )
+    status_iklan = models.PositiveSmallIntegerField(
+        choices=LISTING_TYPE,
+        verbose_name=('Status Iklan'),
+        help_text=('Pilih jenis iklan'),
     )
     harga = models.IntegerField(
         help_text=_('Masukkan harga rumah')
@@ -111,7 +121,6 @@ class Rumah(models.Model):
     fasilitas = models.ManyToManyField(
         Fasilitas,
         blank=True,
-        null=True,
     )
     alamat = models.TextField(
         help_text=_('Masukkan alamat detail')
@@ -119,17 +128,24 @@ class Rumah(models.Model):
     deskripsi_iklan = models.TextField(
         help_text=_('Masukkan deskripsi iklan')
     )
+    # auto fill in save
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         help_text=_('Pilih user')
     )
 
+
     class Meta:
         verbose_name_plural = 'Rumah'
 
+
+    def save(self, *args, **kwargs):
+        pass
+
     def __str__(self):
         return self.judul_iklan
+
 
 class FotoRumah(models.Model):
     foto_rumah = models.ForeignKey(Rumah)

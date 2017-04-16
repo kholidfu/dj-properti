@@ -1,11 +1,11 @@
 # LISTING TYPE
 JUAL = 1
-BELI = 2
+# BELI = 2
 SEWA = 3
 LISTING_TYPE = (
-    (JUAL, 'Jual'),
-    (BELI, 'Beli'),
-    (SEWA, 'Sewa'),
+    (JUAL, 'Dijual'),
+    # (BELI, 'Beli'),
+    (SEWA, 'Disewakan'),
 )
 
 # ROOM_NUMBER
