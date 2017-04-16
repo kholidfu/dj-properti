@@ -11,9 +11,9 @@ urbanindo, etc.
 
 ### Menambahkan Iklan Listing Rumah
 
-![Add new listing 1](https://github.com/kholidfu/dj-properti/blob/dev/screenshot/Screen%20Shot%202017-04-16%20at%206.28.31%20AM.png?raw=true "Add new listing 1")
+![Add new listing 1](https://github.com/kholidfu/dj-properti/blob/dev/screenshot/add_rumah_1.png?raw=true "Add new listing 1")
 
-![Add new listing 2](https://github.com/kholidfu/dj-properti/blob/dev/screenshot/Screen%20Shot%202017-04-16%20at%206.28.44%20AM.png?raw=true "Add new listing 2")
+![Add new listing 2](https://github.com/kholidfu/dj-properti/blob/dev/screenshot/add_rumah_2.png?raw=true "Add new listing 2")
 
 ### Menambahkan Iklan Listing Tanah
 
