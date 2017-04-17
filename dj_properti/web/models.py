@@ -97,6 +97,11 @@ class Rumah(models.Model):
     harga = models.IntegerField(
         help_text=_('Masukkan harga rumah')
     )
+    bisa_nego = models.BooleanField(
+        default=False,
+        verbose_name=_('Harga bisa dinego?'),
+        help_text=_('Harga apakah bisa dinego?'),
+    )
     luas_tanah = models.IntegerField(
         verbose_name='Luas Tanah',
         help_text=_('Satuan meter persegi')
@@ -184,7 +189,7 @@ class Tanah(models.Model):
     harga = models.IntegerField(
         help_text=_('Masukkan harga tanah')
     )
-    is_nego = models.BooleanField(
+    bisa_nego = models.BooleanField(
         default=False,
         verbose_name=_('Harga bisa dinego?'),
         help_text=_('Harga apakah bisa dinego?'),
