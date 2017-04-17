@@ -1,14 +1,12 @@
 appdirs==1.4.3
 defusedxml==0.5.0
 Django==1.11
+django-decouple==2.1
 oauthlib==2.0.2
-olefile==0.44
 packaging==16.8
-Pillow==4.1.0
-psycopg2==2.7.1
+pkg-resources==0.0.0
 PyJWT==1.4.2
 pyparsing==2.2.0
-python-decouple==3.0
 python3-openid==3.1.0
 pytz==2017.2
 requests==2.13.0
