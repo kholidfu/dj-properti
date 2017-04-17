@@ -17,6 +17,10 @@ urbanindo, etc.
 
 ### Menambahkan Iklan Listing Tanah
 
+![Add new listing 1](https://github.com/kholidfu/dj-properti/blob/dev/screenshot/add_tanah_1.png?raw=true "Add new listing 1")
+
+![Add new listing 2](https://github.com/kholidfu/dj-properti/blob/dev/screenshot/add_tanah_2.png?raw=true "Add new listing 2")
+
 ### Menambahkan Iklan Listing Apartemen
 
 ### Menambahkan Iklan Listing Sewa/Kontrak
