@@ -164,3 +164,74 @@ class FotoRumah(models.Model):
         max_length=1000,  # max_length of filename
     )
 
+    class Meta:
+        verbose_name_plural = 'Foto Rumah'
+
+
+class Tanah(models.Model):
+    judul_iklan = models.CharField(
+        max_length=255,
+        help_text=_('Masukkan judul iklan')
+    )
+    judul_iklan_slug = models.SlugField(
+        help_text=_('Otomatis terisi, biarkan saja')
+    )
+    status_iklan = models.PositiveSmallIntegerField(
+        choices=TIPE_LISTING,
+        verbose_name=('Status Iklan'),
+        help_text=('Pilih jenis iklan'),
+    )
+    harga = models.IntegerField(
+        help_text=_('Masukkan harga tanah')
+    )
+    is_nego = models.BooleanField(
+        default=False,
+        verbose_name=_('Harga bisa dinego?'),
+        help_text=_('Harga apakah bisa dinego?'),
+    )
+    luas_tanah = models.IntegerField(
+        verbose_name='Luas Tanah',
+        help_text=_('Satuan meter persegi')
+    )
+    status_sertifikat = models.PositiveSmallIntegerField(
+        choices=STATUS_SERTIFIKAT,
+        help_text=_('Pilih jenis sertifikat')
+    )
+    alamat = models.TextField(
+        help_text=_('Masukkan alamat detail')
+    )
+    deskripsi_iklan = models.TextField(
+        help_text=_('Masukkan deskripsi iklan')
+    )
+    # auto fill in save
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        help_text=_('Pilih user')
+    )
+
+
+    class Meta:
+        verbose_name_plural = 'Tanah'
+
+
+    def save(self, *args, **kwargs):
+        # override save for slug field
+        self.judul_iklan_slug = slugify(self.judul_iklan)
+        super(Tanah, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.judul_iklan
+    
+    
+class FotoTanah(models.Model):
+    foto_tanah = models.ForeignKey(Tanah)
+    foto = models.ImageField(
+        upload_to='assets/tanah/',
+        blank=True,
+        null=True,
+        max_length=1000,  # max_length of filename
+    )
+
+    class Meta:
+        verbose_name_plural = 'Foto Tanah'
