@@ -19,6 +19,8 @@ on olx, rumah123, urbanindo, etc.
 Aplikasi ini sudah siap dari sisi fungsionalitas minimal, tinggal
 develop untuk front-end dan siap go-live!
 
+Freely contact me for more info.
+
 ## Demo
 
 ## Screen Capture
