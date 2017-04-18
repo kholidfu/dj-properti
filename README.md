@@ -14,4 +14,11 @@ on olx, rumah123, urbanindo, etc.
 - Django
 - PostgreSQL
 
+## Progress Status
+
+Aplikasi ini sudah siap dari sisi fungsionalitas minimal, tinggal
+develop untuk front-end dan siap go-live!
+
+## Demo
+
 ## Screen Capture
