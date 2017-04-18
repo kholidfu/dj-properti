@@ -60,6 +60,31 @@ class TanahAdmin(admin.ModelAdmin):
         obj.save()
 
 
+class FotoApartemenInline(admin.TabularInline):
+    model = FotoApartemen
+    extra = 6
+
+
+class ApartemenAdmin(admin.ModelAdmin):
+    inlines = (FotoApartemenInline,)
+    formfield_overrides = {
+        models.ManyToManyField: {'widget': forms.CheckboxSelectMultiple},
+    }
+    exclude = ('judul_iklan_slug', 'user',)
+
+    def save_model(self, request, obj, form, change):
+        """When creating a new object, set the creator field.
+
+        Example of request all listings by current user:
+
+        >>> Rumah.objects.filter(user__username='admin')
+
+        """
+        if not change:
+            obj.user = request.user
+        obj.save()
+
+
 class CustomUserAdmin(UserAdmin):
     inlines = (ProfileInline,)
 
@@ -76,6 +101,7 @@ class FasilitasAdmin(admin.ModelAdmin):
 admin.site.register(Fasilitas, FasilitasAdmin)
 admin.site.register(Rumah, RumahAdmin)
 admin.site.register(Tanah, TanahAdmin)
+admin.site.register(Apartemen, ApartemenAdmin)
 admin.site.register(Profile)
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
